@@ -43,7 +43,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-###Using these gits as reference:
-#####* https://github.com/facebook/create-react-app
-#####* https://github.com/jazz2900/2018-jamstack-hackathon/blob/master/getting-started.md
-#####* https://github.com/netlify/create-react-app-lambda/blob/master/README.md
+### Using these gits as reference:
+##### * https://github.com/facebook/create-react-app
+##### * https://github.com/jazz2900/2018-jamstack-hackathon/blob/master/getting-started.md
+##### * https://github.com/netlify/create-react-app-lambda/blob/master/README.md
