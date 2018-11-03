@@ -3,26 +3,27 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    test() {
+        console.log('test')
+    }
+
+
   render() {
+        console.log('render')
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+        <div className="App">
+            <div class="search">
+                <h1>yparser</h1>
+                <input></input><br></br>
+                <button>Submit</button>
+            </div>
+            <div class="result">
+                <h2>Video Title</h2>
+                <p>text for video</p>
+            </div>
+        </div>
+        );
+    }
 }
 
 export default App;
