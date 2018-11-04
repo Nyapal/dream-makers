@@ -5,6 +5,8 @@ import logo from './logo.svg';
 import './App.css';
 import './stylesheets.css';
 
+{/* AIzaSyAF0d-QWY-RajoMgbIlhuy141u-c-r9NnI */}
+
 class YouTubeVideo extends React.Component {
     constructor(props) {
         super(props)
@@ -38,6 +40,7 @@ class YouTubeVideo extends React.Component {
             <br/>
             <YouTube
                 videoId={parse(this.state.videoId)['https://www.youtube.com/watch?v']}
+                name={this.state.name}
                 opts={opts}
                 onReady={this._onReady}
             />
