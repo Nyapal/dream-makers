@@ -99,6 +99,8 @@ class App extends Component {
     }
 }
 
+{/* this is nya testing stuff*/ }
+
 const AppRouter = () => (
   <Router>
     <div>
