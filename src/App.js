@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import './stylesheets.css';
 
-{/* AIzaSyAF0d-QWY-RajoMgbIlhuy141u-c-r9NnI */}
+{/* this is nya testing stuff*/ }
 
 class YouTubeVideo extends React.Component {
     constructor(props) {
