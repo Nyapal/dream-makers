@@ -57,7 +57,7 @@ class YouTubeVideo extends React.Component {
                 opts={opts}
                 onReady={this._onReady}
             />
-            <h1>Video Title</h1>
+            <h1>Coming Soon...</h1>
             <p>This is where the script will go: </p>
         </div>
     );
@@ -127,8 +127,42 @@ class Scope extends Component {
         return (
             <div className= "scope">
                 <Navbar/>
-                <h1> Future Features </h1>
-                <p> </p>
+                    <h3> Notify Scope </h3>
+                    <p>
+                    Notify is a web-based app that allows end users to convert various forms of media into text to more efficiently consume information.
+
+                    Our product combats information-overload and helps the user
+
+                    Notify will soon feature two extensive web-applications </p>
+
+                    <h3> Spoken Note: </h3>
+
+                    <p>
+                    'Function':
+                    - takes audio input
+                    - converts audio to word array using Google API
+                    - uses "key words" and tone to indicate importance for note taking
+                    </p>
+
+                    <h3>Y-Parser </h3>
+
+                    <p>
+
+                    Function:
+                    - extracts the subtitles from youtube videos
+                    - compiles the array of words into a script
+                    - then uses Machine Learning to summarize the video
+
+                    </p>
+                    <h3> Applied: </h3>
+                    <p>
+                    <ul>
+                        <li> Teachers in class can automatically have notes from lecture </li>
+                        <li> Quick Research: Being able to quikly siphon through key words </li>
+                        <li> Students and researchers working under duress </li>
+                    </ul>
+
+                    </p>
             </div>
         )
     }
