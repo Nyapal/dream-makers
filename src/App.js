@@ -2,8 +2,25 @@ import React, { Component } from 'react';
 import YouTube from 'react-youtube';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {parse} from 'query-string';
+import Clarifai from 'clarifai'
 import './App.css';
 import './stylesheets.css';
+
+const app = new Clarifai.App({
+ apiKey: 'a9d3339605014e9ba0e1ce21b0cc3594'
+});
+
+// clarifai.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/beer.mp4', {video: true})
+//   .then(log)
+//   .catch(log);
+// app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
+//   function(response) {
+//     console.log(response);
+//   },
+//   function(err) {
+//     console.error(err);
+//   }
+// );
 
 class YouTubeVideo extends React.Component {
     constructor(props) {
@@ -20,7 +37,8 @@ class YouTubeVideo extends React.Component {
         this.setState({videoId: this.state.value})
         e.target.reset();
     }
-    render() {
+    render(){
+    console.log(<YouTube videoId/>)
         const opts = {
             height: '360',
             width: '600',
@@ -36,10 +54,11 @@ class YouTubeVideo extends React.Component {
             </form>
             <YouTube
                 videoId={parse(this.state.videoId)['https://www.youtube.com/watch?v']}
-                name={this.state.name}
                 opts={opts}
                 onReady={this._onReady}
             />
+            <h1>Video Title</h1>
+            <p>This is where the script will go: </p>
         </div>
     );
   }
@@ -53,6 +72,7 @@ class About extends Component {
     render() {
         return (
             <div className="about">
+                <Navbar/>
                 <h1> About Us </h1>
                 <p> Why </p>
             </div>
@@ -64,7 +84,8 @@ class Contact extends Component {
     render() {
         return (
             <div className= "contact-form">
-                <h2> Contact Us </h2>
+                <Navbar/>
+                <h1> Contact Us </h1>
                 <form action="https://formspree.io/jazz2900@gmail.com" method="POST">
                     <textarea type="email" placeholder="Email" name="_replyto" rows="1" cols="50"/> <br/>  <br/>
                     <textarea type="text" placeholder="Message.." name="name" rows="6" cols="50"/> <br/>
@@ -79,10 +100,9 @@ class Scope extends Component {
     render() {
         return (
             <div className= "scope">
-                <h2> Title </h2>
-                <p>
-
-                </p>
+                <Navbar/>
+                <h1> Future Features </h1>
+                <p> </p>
             </div>
         )
     }
@@ -93,28 +113,48 @@ class App extends Component {
         return (
             <div className="App">
                 <h1>yparser</h1>
+                <Navbar/>
                 <YouTubeVideo />
             </div>
         )
     }
 }
 
-{/* this is nya testing stuff*/ }
+class Navbar extends Component {
+    render() {
+        return (
+            <nav className="navbar">
+                <Link to='/' className="navbar-link">Home</Link>
+                <Link to='/about' className="navbar-link">About</Link>
+                <Link to='/scope' className="navbar-link">Scope</Link>
+                <Link to='/contact-us' className="navbar-link">Contact Us</Link>
+            </nav>
+        )
+    }
+}
+
+// const Navbar extends Component {
+//     render() {
+//         return (
+//             <nav className="navbar">
+//             <Link to='/' className="navbar-link">Home</Link>
+//             <Link to='/about' className="navbar-link">About</Link>
+//             <Link to='/scope' className="navbar-link">Scope</Link>
+//             <Link to='/contact-us' className="navbar-link">Contact Us</Link>
+//             </nav>
+//         )
+//     }
+// }
+
 
 const AppRouter = () => (
   <Router>
-    <div>
-        <nav className="navbar">
-            <Link to='/' className="navbar-link">Home</Link>
-            <Link to='/about' className="navbar-link">About</Link>
-            <Link to='/scope' className="navbar-link">Scope</Link>
-            <Link to='/contact-us' className="navbar-link">Contact Us</Link>
-        </nav>
-            <Route path="/" exact component={App} />
-            <Route path="/about/" component={About} />
-            <Route path="/scope/" component={Scope} />
-            <Route path="/contact-us/" component={Contact} />
-    </div>
+        <div>
+        <Route path="/" exact component={App} />
+        <Route path="/about/" component={About} />
+        <Route path="/scope/" component={Scope} />
+        <Route path="/contact-us/" component={Contact} />
+        </div>
   </Router>
 );
 
