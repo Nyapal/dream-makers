@@ -73,8 +73,22 @@ class About extends Component {
         return (
             <div className="about">
                 <Navbar/>
-                <h1> About Us </h1>
-                <p> Why </p>
+                    <h1> About Us </h1>
+                        <h6> Nya </h6>
+                            <img src={require("./nya.jpeg")}/>
+                            <p> Hometown: San Diego, California</p>
+                            <p> Favorite Coding Language: Javascript</p>
+                            <p> Fun Fact: Speaks 7 Languages</p>
+                        <h6> KJ </h6>
+                            <img src={require("./kj.jpeg")}/>
+                            <p> Hometown: Oakland, California</p>
+                            <p> Favorite Coding Language: Python</p>
+                            <p> Fun Fact: Believes we are all living in a simulation</p>
+                        <h6> Jasmine </h6>
+                            <img src={require("./jasmine.jpeg")}/>
+                            <p> Hometown: Gainesville, Florida</p>
+                            <p> Favorite Coding Language: Javascript</p>
+                            <p> Fun Fact: Plays the Piano</p>
             </div>
         )
     }
