@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+.aboutUsTable {
+    background-color: green;
+    margin: 0px auto;
+}
+
 .contact-form {
     text-align: center;
 }

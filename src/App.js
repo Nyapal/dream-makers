@@ -74,21 +74,33 @@ class About extends Component {
             <div className="about">
                 <Navbar/>
                     <h1> About Us </h1>
-                        <h6> Nya </h6>
-                            <img src={require("./nya.jpeg")}/>
-                            <p> Hometown: San Diego, California</p>
-                            <p> Favorite Coding Language: Javascript</p>
-                            <p> Fun Fact: Speaks 7 Languages</p>
-                        <h6> KJ </h6>
-                            <img src={require("./kj.jpeg")}/>
-                            <p> Hometown: Oakland, California</p>
-                            <p> Favorite Coding Language: Python</p>
-                            <p> Fun Fact: Believes we are all living in a simulation</p>
-                        <h6> Jasmine </h6>
-                            <img src={require("./jasmine.jpeg")}/>
-                            <p> Hometown: Gainesville, Florida</p>
-                            <p> Favorite Coding Language: Javascript</p>
-                            <p> Fun Fact: Plays the Piano</p>
+                        <table width="100%">
+                            <tr>
+                                <td>
+                                <h2> Nya </h2>
+                                <img width="200px" src={require("./nya.jpeg")}/>
+                                <p> Hometown: San Diego, California</p>
+                                <p> Favorite Coding Language: Javascript</p>
+                                <p> Fun Fact: Speaks 7 Languages</p>
+                                </td>
+
+                                <td>
+                                <h2> KJ </h2>
+                                <img width="200px" src={require("./kj2.png")}/>
+                                <p> Hometown: Oakland, California</p>
+                                <p> Favorite Coding Language: Python</p>
+                                <p> Fun Fact: Believes we are all living in a simulation</p>
+                                </td>
+
+                                <td>
+                                <h2> Jasmine </h2>
+                                <img width="200px" src={require("./jasmine.jpeg")}/>
+                                <p> Hometown: Gainesville, Florida</p>
+                                <p> Favorite Coding Language: Javascript</p>
+                                <p> Fun Fact: Plays the Piano</p>
+                                </td>
+                            </tr>
+                        </table>
             </div>
         )
     }
@@ -126,7 +138,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <h1>yparser</h1>
+                <h1>notify</h1>
                 <Navbar/>
                 <YouTubeVideo />
             </div>
@@ -139,7 +151,7 @@ class Navbar extends Component {
         return (
             <nav className="navbar">
                 <Link to='/' className="navbar-link">Home</Link>
-                <Link to='/about' className="navbar-link">About</Link>
+                <Link to='/meet-the-team' className="navbar-link">Meet the Team</Link>
                 <Link to='/scope' className="navbar-link">Scope</Link>
                 <Link to='/contact-us' className="navbar-link">Contact Us</Link>
             </nav>
@@ -165,7 +177,7 @@ const AppRouter = () => (
   <Router>
         <div>
         <Route path="/" exact component={App} />
-        <Route path="/about/" component={About} />
+        <Route path="/meet-the-team/" component={About} />
         <Route path="/scope/" component={Scope} />
         <Route path="/contact-us/" component={Contact} />
         </div>
