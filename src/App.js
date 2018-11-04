@@ -1,25 +1,52 @@
 import React, { Component } from 'react';
 import YouTube from 'react-youtube';
+import {parse} from 'query-string';
 import logo from './logo.svg';
 import './App.css';
 import './stylesheets.css';
 
 class YouTubeVideo extends React.Component {
-  render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 1
-      }
+    constructor(props) {
+        super(props)
+        this.state = {videoId: 'https://www.youtube.com/watch?v=MNNjzFvKawg', value: ''}
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange(e) {
+        this.setState({value: e.target.value})
+    }
+    handleSubmit(e) {
+        e.preventDefault()
+        this.setState({videoId: this.state.value})
+    }
+    render() {
+        const opts = {
+            height: '360',
+            width: '600',
+            playerVars: { // https://developers.google.com/youtube/player_parameters
+                autoplay: -1
+            }
     };
-
     return (
-      <YouTube
-        videoId="2g811Eo7K8U"
-        opts={opts}
-        onReady={this._onReady}
-      />
+        <div>
+            <div className="search-container">
+                <form className="search" onSubmit={this.handleSubmit}>
+                    <input type="text" placeholder="Enter Video URL" value={this.state.value} onChange={this.handleChange}/>
+                    <input type="submit"/>
+                </form>
+            </div>
+            <br/>
+            <YouTube
+                videoId={parse(this.state.videoId)['https://www.youtube.com/watch?v']}
+                opts={opts}
+                onReady={this._onReady}
+            />
+            {/* Render script here */}
+            <div className="youtube">
+                <h2>Video Title</h2>
+                <p> Video Script </p>
+            </div>
+      </div>
     );
   }
 
@@ -35,34 +62,25 @@ class App extends Component {
             <div className="App">
             {/* TITLE VIDEO */}
             <h1>yparser</h1>
-                <div class="search-container">
-                    <form class="search">
-                        <input></input><br></br>
-                        <input type="submit"/>
-                    </form>
-            </div>
-                {/* YOUTUBE Component */}
-                <YouTubeVideo />
-                {/* Render script here */}
-                <div class="youtube">
-                    <p class="result-container">
-                        <h2>Video Title</h2>
-                        <p>text for video</p>
-                    </p>
-                </div>
+                <br/>
+                {/* YOUTUBE Component*/}
+                    <div>
+                        <YouTubeVideo />
+                    </div>
+
 
                 {/* FORMSPREE CONTACT US FORM */}
-                <div class= "submission">
+                <div className= "submission">
                 <h2> Contact Us </h2>
                     <form action="https://formspree.io/jazz2900@gmail.com" method="POST">
-                        <input type="text" name="name"/>
-                        <input type="email" name="_replyto"/>
+                        <input type="email" placeholder="Email" name="_replyto"/> <br/>
+                        <input type="text" placeholder="Message.." name="name"/> <br/>
                         <input type="submit" value="Send"/>
                     </form>
                 </div>
 
                 {/* FOOTER */}
-                <div class="footer">
+                <div className="footer">
                     <p>Dream-makers</p>
                 </div>
             </div>
